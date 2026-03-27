@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Todoアプリ</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="container">
+      <ul>
+        <li><a href="/" class="contrast" style="font-size:1.5rem; font-weight:bold;">✅ Todoアプリ</a></li>
+      </ul>
+      <ul>
+        <li><a href="/create">新規作成</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>

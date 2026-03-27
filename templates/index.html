@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section>
+  <a href="/create" role="button">➕ CREATE NEW TASK</a>
+</section>
+
+{% for post in posts %}
+<article>
+  <header>
+    {% if post.due.date() < today %}
+    <p style="color: #d32f2f; background-color: #ffd1d1; padding: 0.5rem; border-radius: 4px; font-weight: bold;">
+        ⚠️ 期限切れです！
+    </p>
+    {% endif %}
+    <h2 style="margin-bottom: 0;">{{ post.title }}</h2>
+  </header>
+
+  <p><strong>期限:</strong> {{ post.due.date() }}</p>
+
+  <footer>
+    <div class="grid">
+      <a href="detail/{{ post.id }}" role="button" class="secondary">Detail</a>
+      <a href="update/{{ post.id }}" role="button" class="outline">Update</a>
+      <a href="delete/{{ post.id }}" role="button" style="background-color: #e53935; border-color: #e53935;">Delete</a>
+    </div>
+  </footer>
+</article>
+{% endfor %}
+{% endblock %}
